@@ -1,0 +1,62 @@
+<mat-card>
+
+  <div class="employee-box">
+    <button routerLink="/register" mat-raised-button color="primary" >Add new Employee</button>
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label>Search:</mat-label>
+        <input matInput  type="text" placeholder="Who are you looking for?" (input)="search($event)" />
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <table mat-table [dataSource]="employees" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Situation">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let employee">
+        <div *ngIf="employee.Active == true; else inactive">
+          <img src="../../../assets/images/active.png" alt="Active" style="height: 20px; width: 20px;" />
+        </div>
+        <ng-template #inactive>
+          <img src="../../../assets/images/inactive.png" alt="Inactive" style="height: 20px; width: 20px;" />
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.Name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.Title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Shift">
+      <th mat-header-cell *matHeaderCellDef> Shift </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.ShiftModel?.Name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let employee">
+        <button routerLink="/edit/{{employee.Id}}" mat-raised-button color="accent" >Edit</button>
+        <button routerLink="/detail/{{employee.Id}}" mat-raised-button >Details</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let employee">
+        <button mat-raised-button color="warn" (click)="OpenDialog(employee.Id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsMap"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsMap;"></tr>
+  </table>
+
+</mat-card>

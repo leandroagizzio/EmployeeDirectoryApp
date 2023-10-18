@@ -1,0 +1,61 @@
+<mat-card>
+
+  <div>
+    <h1>Employee Details</h1>
+
+  </div>
+
+  <div *ngIf="employee">
+    <form>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Name:</mat-label>
+          <input matInput type="text" value="{{employee.Name}}" disabled />
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Title:</mat-label>
+          <input matInput type="text" value="{{employee.Title}}" disabled />
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Situation:</mat-label>
+          <input matInput type="text" value="{{employee.Active ? 'Active' : 'Inactive'}}" disabled />
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Date created:</mat-label>
+          <input matInput type="text" value="{{employee.DateCreated}}" disabled />
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Date updated:</mat-label>
+          <input matInput type="text" value="{{employee.DateUpdated}}" disabled />
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Shift:</mat-label>
+          <input matInput type="text" value="{{employee.ShiftModel?.Name}}" disabled />
+        </mat-form-field>
+      </div>
+
+      <div class="btn-box">
+        <button (click)="ToggleEmployee()" mat-raised-button color="warn">{{employee.Active ? 'Disable' : 'Enable'}} employee</button>
+        <button routerLink="" mat-raised-button>Go back</button>
+      </div>
+
+    </form>
+  </div>
+
+</mat-card>

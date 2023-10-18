@@ -1,0 +1,19 @@
+
+<mat-card>
+
+  <div *ngIf="employee">
+    <h1>Would you like to confirm the deletion?</h1>
+    <div>
+      <h2>Employee:</h2>
+      <p>{{ employee.Name }}</p>
+      <h2>Title:</h2>
+      <p>{{ employee.Title }}</p>
+    </div>
+
+    <div>
+      <button (click)="Delete()" mat-raised-button color="warn">Confirm deletion</button>
+      <button (click)="CloseDialog()" mat-raised-button >Cancel</button>
+    </div>
+  </div>
+
+</mat-card>

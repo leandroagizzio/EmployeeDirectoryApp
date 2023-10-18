@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  width: 100vw;
+  height: auto;
+  min-height: 100%;
+  font-size: 62.5%;  
+  /*overflow: hidden;*/
+  overflow-x: hidden;
+  background-color: #303030;
+}
+
+
+.container {
+  width: 100%;
+  /*height: 100%;*/
+  /*height: -webkit-fill-available;*/
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  /*box-sizing: border-box;*/
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-card {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 3rem;
+    /*margin-top: 5rem;*/
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.input-box {
+    width: 500px;
+}
+
+.btn-box {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-box button {
+    width: 50%;
+}

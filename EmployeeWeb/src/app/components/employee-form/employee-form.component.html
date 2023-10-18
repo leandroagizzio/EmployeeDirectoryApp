@@ -1,0 +1,42 @@
+
+<mat-card>
+
+  <h1>{{ btnTitleName }}</h1>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="submit()" #formDit="ngForm" ngNativeValidate>
+
+    <input type="hidden" formControlName="id" />
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Name:</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Insert the name" required />
+      </mat-form-field>
+    </div>
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Title:</mat-label>
+        <input matInput type="text" formControlName="title" placeholder="Insert the title" required />
+      </mat-form-field>
+    </div>
+
+    <div class="input-box" formGroupName="shiftModel">
+      <mat-form-field>
+        <mat-label for="">Shift:</mat-label>        
+        <mat-select matInput id="shift" formControlName="id" required > <!--[(value)]="selShift" >-->
+          <mat-option *ngFor="let shift of shifts" [value]="shift.Id" >{{ shift.Name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!--<p> Options  {{ selShift }}</p>-->
+
+    <div class="btn-box">
+      <button type="submit" [disabled]="employeeForm.invalid" mat-raised-button color="accent">{{ btnActionName }}</button>
+      <button routerLink="" mat-raised-button>Go back</button>
+      </div>
+
+  </form>
+
+</mat-card>
